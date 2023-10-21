@@ -7,9 +7,34 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class ThongTinSVDao {
     private static Connection conn = MySQL.getConnect();
+    public static Vector getData() {
+        ArrayList<ThongTinDangKy> student = ThongTinSVDao.getListSV();
+        Vector result = new Vector<>();
+        for (ThongTinDangKy x: student) {
+            Vector temp = new Vector<>();
+            temp.add(x.getMSV());
+            temp.add(x.getName());
+            temp.add(x.getSex());
+            temp.add(x.getDate());
+            temp.add(x.getPhone());
+            temp.add(x.getAddress());
+            temp.add(x.getCCCD());
+            temp.add(x.getEmail());
+            temp.add(x.getChucvu());
+            temp.add(x.getTinhTrang());
+            temp.add(x.getMaNganh());
+            temp.add(x.getLop());
+            temp.add(x.getSoPhong());
+            temp.add(x.getToa());
+
+            result.add(temp);
+        }
+        return result;
+    }
     public static ArrayList<ThongTinDangKy> getListSV(){
         ArrayList<ThongTinDangKy> listSV = new ArrayList<>();
         String sql = "SELECT * FROM player";

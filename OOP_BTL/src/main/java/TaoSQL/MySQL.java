@@ -11,13 +11,13 @@ import static java.sql.DriverManager.getConnection;
 
 public class MySQL {
     private static Connection conn  = null;
-    private static String DB_URL = "jdbc:mysql://127.0.0.1:3306/ktx";
-    private static String USER_NAME ="root";
-    private static String PASSWORD = "06032004";
+    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/ktx?serverTimezone=UTC";
+    private static final String USER_NAME ="root";
+    private static final String PASSWORD = "06032004";
     public MySQL(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = getConnection(DB_URL,USER_NAME,PASSWORD);
+            conn = DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD);
             System.out.println("Connect!!!");
         }
         catch (Exception e){
@@ -27,7 +27,7 @@ public class MySQL {
     static{
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = getConnection(DB_URL,USER_NAME,PASSWORD);
+            conn = DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD);
             System.out.println("Connect!!!");
         }catch (Exception e){
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class MySQL {
     public static Connection getConnect(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = getConnection(DB_URL,USER_NAME,PASSWORD);
+            conn = DriverManager.getConnection(DB_URL,USER_NAME,PASSWORD);
             System.out.println("Connect!!!");
         }
         catch ( Exception e){
@@ -105,43 +105,4 @@ public class MySQL {
         return listTT;
     }
 
-    public static boolean addComputer(ThongTinBQL BQL) {
-        String sql = "INSERT INTO DsQL(user,pass,Name,date,SEX,chucvu,Tinh,Quan,Xa,Email,Phone,CCCD) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            ps.setString(1, BQL.getName());
-            return ps.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-    public static ArrayList<BQLModel> getListComputer() {
-        ArrayList<BQLModel> listBQL = new ArrayList<>();
-        String sql = "SELECT * computers";
-        try {
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                BQLModel MdBQL = new BQLModel();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return listBQL;
-    }
-    public static void main(String[] args) {
-        System.out.println(MySQL.getConnect());
-    }
 }

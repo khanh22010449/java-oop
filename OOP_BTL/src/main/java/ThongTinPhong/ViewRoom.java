@@ -1,6 +1,7 @@
 package ThongTinPhong;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -17,15 +18,22 @@ public class ViewRoom extends JPanel {
         text_room.setFont(new Font("Cambria",Font.BOLD, 16));
         text_room.setEditable(false);
         JScrollPane JsText = new JScrollPane(text_room);
-        JsText.setBounds(30,30,880,440);
+        JsText.setBounds(30,30,880,340);
 
         ActionListener ac = new RoomListener(this);
+
         JButton view = new JButton("Hiện Thị Thông Tin");
         view.setBounds(800, 480, 150, 40);
+        view.setVisible(true);
         view.addActionListener(ac);
 
         JLabel jl_hoadon = new JLabel("Hóa Đơn");
-        jl_hoadon.
+        jl_hoadon.setBorder(new LineBorder(Color.GRAY));
+        jl_hoadon.setBounds(200,480,150,40);
+
+        JButton jb_search = new JButton("Tìm Kiếm");
+        jb_search.setBorder(new LineBorder(Color.GRAY));
+        jb_search.setBounds(200,480,150,40);
 
         add(view);
         add(JsText);
@@ -42,6 +50,7 @@ public class ViewRoom extends JPanel {
         String s = "SELECT * FROM  DsSV";
         ResultSet resultSet = Eu.executeQuery(s);
         String str = "";
+        resultSet.next();
         while (resultSet.next()) {
             str += resultSet.getString("MSV") + "| "
                     + resultSet.getString("Name") + "|  "

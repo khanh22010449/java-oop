@@ -36,9 +36,8 @@ public class TrangChu extends JFrame{
         jl_chon.setBounds(100, 160, 120, 11);
 
         JLabel jl_nen = new JLabel();
-        jl_nen.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/OneDrive/Pictures/5eb67f4650782bf2ebac4f99458fa9d4.jpg"))));
+        jl_nen.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/IdeaProjects/OOP_BTL/src/main/java/accet/5eb67f4650782bf2ebac4f99458fa9d4.jpg"))));
         jl_nen.setBounds(0,0,480,620);
-
         JPanel jpanel_luachon = new JPanel();
         jpanel_luachon.setBounds(765, 150, 480,620);
 
