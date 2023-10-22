@@ -66,7 +66,7 @@ public class ThongTinBQL extends JPanel{
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Image image = toolkit.getImage(new URL("file:///C:/Users/ASUS/OneDrive/Pictures/519151909781c232129e6441a2d96904.jpg"));
         Image scaledImage = image.getScaledInstance(178, 178, Image.SCALE_SMOOTH);
-        ImageIcon img = new ImageIcon(scaledImage);
+        ImageIcon img = new ImageIcon(scaledImage, "Lock");
         jl_picture.setIcon(img);
         jp_picture.add(jl_picture);
 
@@ -216,8 +216,9 @@ public class ThongTinBQL extends JPanel{
         add(basic);
     }
     public void saveData() throws SQLException {
-
-//        String s ="Select * from DsQL where user like '" + user +"%'  AND pass like '"+ pass +"%';";
+        Connection connection = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655195", "sql12655195", "YQ2TMJuk53");
+        Statement Eu = connection.createStatement();
+        String s ="Select * from DsQL where user like '" + user +"%'  AND pass like '"+ pass +"%';";
         this.jt_name.setEditable(false);
         this.jt_date.setEditable(false);
         this.jt_sex.setEditable(false);
@@ -228,8 +229,8 @@ public class ThongTinBQL extends JPanel{
         this.jt_email.setEditable(false);
         this.jt_sdt.setEditable(false);
         this.jt_CCCD.setEditable(false);
-//        Eu.execute("Update DsQL SET Name = '" + jt_name.getText() + "', SEX = '" +jt_sex.getText()+"', Phone = '" +jt_sdt.getText()+"', Tinh = '"+jt_Tinh.getText()+"' , Quan = '"+ jt_Quan.getText()+"' , Xa ='"+jt_xa.getText()+"' , date = '"+ jt_date.getText()+"' , chucvu = '"+jt_chuc_vu.getText()+"', CCCD = '"+jt_CCCD.getText()+"', Email = '"+jt_email.getText()+"'\n" +
-//                "where user = '"+this.user+"' and pass = '"+this.pass+"'; ");
+        Eu.execute("Update DsQL SET Name = '" + jt_name.getText() + "', SEX = '" +jt_sex.getText()+"', Phone = '" +jt_sdt.getText()+"', Tinh = '"+jt_Tinh.getText()+"' , Quan = '"+ jt_Quan.getText()+"' , Xa ='"+jt_xa.getText()+"' , date = '"+ jt_date.getText()+"' , chucvu = '"+jt_chuc_vu.getText()+"', CCCD = '"+jt_CCCD.getText()+"', Email = '"+jt_email.getText()+"'\n" +
+                "where user like '"+this.user+"' and password like '"+this.pass+"'; ");
     }
 
     public void Tuychinh() {
@@ -245,10 +246,9 @@ public class ThongTinBQL extends JPanel{
         this.jt_CCCD.setEditable(true);
     }
     public void ThongTin() throws SQLException{
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/er", "root", "06032004");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655195", "sql12655195", "YQ2TMJuk53");
         Statement Eu = connection.createStatement();
-        Eu.execute("use ktx");
-        String s ="Select * from DsQL where user like '" + user +"%'  AND pass like '"+ pass +"%';";
+        String s ="Select * from DsQL where user like '" + user +"%'  AND password like '"+ pass +"%';";
         ResultSet resultSet = Eu.executeQuery(s);
         while (resultSet.next()){
             this.jt_name.setText(resultSet.getString("Name"));

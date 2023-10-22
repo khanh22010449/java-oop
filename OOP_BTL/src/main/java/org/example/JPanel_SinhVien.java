@@ -64,7 +64,7 @@ public class JPanel_SinhVien extends JPanel {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ktx", "root", "06032004");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655195", "sql12655195", "YQ2TMJuk53");
         Statement Eu = connection.createStatement();
         boolean isLogin = false;
         if(text_tk.getText().isEmpty()){

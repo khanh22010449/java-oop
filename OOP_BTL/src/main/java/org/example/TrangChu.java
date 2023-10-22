@@ -36,7 +36,7 @@ public class TrangChu extends JFrame{
         jl_chon.setBounds(100, 160, 120, 11);
 
         JLabel jl_nen = new JLabel();
-        jl_nen.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/IdeaProjects/OOP_BTL/src/main/java/accet/5eb67f4650782bf2ebac4f99458fa9d4.jpg"))));
+        jl_nen.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/IdeaProjects/OOP_BTL/src/main/java/accet/5eb67f4650782bf2ebac4f99458fa9d4.jpg")),"Lock"));
         jl_nen.setBounds(0,0,480,620);
         JPanel jpanel_luachon = new JPanel();
         jpanel_luachon.setBounds(765, 150, 480,620);
@@ -57,7 +57,7 @@ public class TrangChu extends JFrame{
         bql.setVisible(false);
 
         JLabel PDT = new JLabel("",SwingConstants.CENTER);
-        PDT.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/Screenshot%202023-10-13%20143951.png"))));
+        PDT.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/Screenshot%202023-10-13%20143951.png")),"Lock"));
         PDT.setBounds(190,440,100,50);
         PDT.setBackground(null);
 
@@ -80,7 +80,7 @@ public class TrangChu extends JFrame{
         text_2.setBounds(60, 530, 360, 30);
 
         JLabel j = new JLabel();
-        j.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61%20(1).png"))));
+        j.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61%20(1).png")),"Lock"));
         j.setBounds(90,30,300,120);
 
         jpanel_luachon.add(j);
@@ -102,7 +102,7 @@ public class TrangChu extends JFrame{
         //jpanel_luachon.setBounds(750, 80, 480,620);
 
         JLabel jl_right = new JLabel();
-        jl_right.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/Screenshot%202023-10-13%20172759.png"))));
+        jl_right.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/IdeaProjects/OOP_BTL/src/main/java/org/example/nenpicture.png")),"Lock"));
         jl_right.setBounds(0,0,740,800 );
 
         JLabel jl_right1 = new JLabel("HỆ THỐNG QUẢN LÝ KÝ TÚC XÁ");
@@ -116,7 +116,7 @@ public class TrangChu extends JFrame{
         jl_right2.setBounds(280,190,680,60);
 
         JLabel jK= new JLabel();
-        jK.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61%20(1).png"))));
+        jK.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61%20(1).png")),"Lock"));
         jK.setBounds(400,10,300,120);
 
         rightground.add(jK);
@@ -131,7 +131,7 @@ public class TrangChu extends JFrame{
         jp_north.setBounds(750,10,530,150);
 
         JLabel jl_QL = new JLabel();
-        jl_QL.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/Untitled.jpg"))));
+        jl_QL.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/Untitled.jpg")),"Lock"));
         jl_QL.setBounds(0,0,530,150);
 
         JLabel jl_kt = new JLabel("KÝ TÚC XÁ");

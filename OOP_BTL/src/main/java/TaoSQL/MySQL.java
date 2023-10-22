@@ -7,13 +7,15 @@ import ThongTinSV.ThongTinSV;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Vector;
+
 import static java.sql.DriverManager.getConnection;
 
 public class MySQL {
     private static Connection conn  = null;
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/ktx?serverTimezone=UTC";
-    private static final String USER_NAME ="root";
-    private static final String PASSWORD = "06032004";
+    private static final String DB_URL = "jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655195";
+    private static final String USER_NAME ="sql12655195";
+    private static final String PASSWORD = "YQ2TMJuk53";
     public MySQL(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -46,8 +48,8 @@ public class MySQL {
     }
     public static boolean addSV(ThongTinDangKy TTdk){
 
-        String sql = "Insert into DsSV(User,Password,MSV,Name,SEX,Phone,Address,date,CCCD,Email,TinhTrang,MaNganh,Lop,Chucvu,sophong,matoa) " +
-                "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        String sql = "Insert into DsSV(user,password,msv,name,sex,phone,address,date,CCCD,email,tinhtrang,MaNganh,lop,chucvu,sophong,toa) " +
+                "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try{
             PreparedStatement ps =conn.prepareStatement(sql);
             ps.setString(1,TTdk.getUser());
@@ -96,7 +98,7 @@ public class MySQL {
                 ttdk.setLop(resultSet.getString("Lop"));
                 ttdk.setChucvu(resultSet.getString("Chucvu"));
                 ttdk.setSoPhong(resultSet.getInt("sophong"));
-                ttdk.setToa(resultSet.getString("matoa"));
+                ttdk.setToa(resultSet.getString("toa"));
             }
         }
         catch (SQLException e){
@@ -105,4 +107,37 @@ public class MySQL {
         return listTT;
     }
 
+    public static boolean UpdateThongTin(ThongTinDangKy TTdk){
+
+        String sql = "Insert into DsSV(user,password,msv,name,sex,phone,address,date,CCCD,email,tinhtrang,MaNganh,lop,chucvu,sophong,toa) " +
+                "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+        try{
+            PreparedStatement ps =conn.prepareStatement(sql);
+            ps.setString(1,TTdk.getUser());
+            ps.setString(2,TTdk.getPassword());
+            ps.setString(3,TTdk.getMSV());
+            ps.setString(4,TTdk.getName());
+            ps.setString(5,TTdk.getSex());
+            ps.setString(6,TTdk.getPhone());
+            ps.setString(7,TTdk.getAddress());
+            ps.setString(8,TTdk.getDate());
+            ps.setString(9,TTdk.getCCCD());
+            ps.setString(10,TTdk.getEmail());
+            ps.setString(11,TTdk.getTinhTrang());
+            ps.setString(12,TTdk.getMaNganh());
+            ps.setString(13,TTdk.getLop());
+            ps.setString(14,TTdk.getChucvu());
+            ps.setInt(15,TTdk.getSoPhong());
+            ps.setString(16,TTdk.getToa());
+            return ps.executeUpdate() > 0 ;
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    public void sreach(){
+
+    }
 }

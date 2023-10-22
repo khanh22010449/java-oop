@@ -25,10 +25,10 @@ public class DienThongTin extends JFrame {
     private JTextField text_date;
     private JTextField text_CCCD;
     private JTextField text_email;
-    private JTextField text_tinhtranghoc = new JTextField("Đang học");
+    private JTextField text_tinhtranghoc = new JTextField("Dang Hoc");
     private JTextField text_MaNganh;
     private JTextField text_Lop;
-    private JTextField text_ChucVu = new JTextField("Sinh Viên");
+    private JTextField text_ChucVu = new JTextField("Sinh Vien");
     private JComboBox<String> toa;
     private JComboBox<Integer> phong;
     private ThongTinDangKy TTDK;
@@ -302,7 +302,7 @@ public class DienThongTin extends JFrame {
             this.TTDK.setToa(toa.getItemAt(toa.getSelectedIndex()));
             this.TTDK.setSoPhong(phong.getItemAt(phong.getSelectedIndex()));
             ThongTinDangKy tt = new ThongTinDangKy(this.TTDK.getUser(),this.TTDK.getPassword(),this.TTDK.getMSV(),this.TTDK.getName(),this.TTDK.getSex(),this.TTDK.getPhone(),this.TTDK.getAddress(),this.TTDK.getDate(),this.TTDK.getCCCD(),this.TTDK.getEmail(),this.TTDK.getTinhTrang(),this.TTDK.getMaNganh(),this.TTDK.getLop(),this.TTDK.getChucvu(),this.TTDK.getSoPhong(),this.TTDK.getToa());
-            return ThongTinSVDao.addSV(tt);
+            return MySQL.addSV(tt);
         } catch (Exception ex) {
             Logger.getLogger(DienThongTin.class.getName()).log(Level.SEVERE, null, ex);
         }

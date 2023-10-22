@@ -14,8 +14,9 @@ public class GiaoDienListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String src = e.getActionCommand();
         if (src.equals("Thông Tin Cá Nhân")){
-            if(this.GiaoDien.viewroom.isVisible()){
+            if(this.GiaoDien.viewroom.isVisible()||this.GiaoDien.HD.isVisible()){
                 this.GiaoDien.viewroom.setVisible(false);
+                this.GiaoDien.HD.setVisible(false);
                 this.GiaoDien.ThongtinBQL.setVisible(true);
             }
             try {
@@ -29,8 +30,9 @@ public class GiaoDienListener implements ActionListener {
             }
         }
         else if(src.equals("Thông Tin Phòng")){
-            if(this.GiaoDien.ThongtinBQL.isVisible()){
+            if(this.GiaoDien.ThongtinBQL.isVisible()||this.GiaoDien.HD.isVisible()){
                 this.GiaoDien.ThongtinBQL.setVisible(false);
+                this.GiaoDien.HD.setVisible(false);
                 this.GiaoDien.viewroom.setVisible(true);
             }
             else{
@@ -38,6 +40,19 @@ public class GiaoDienListener implements ActionListener {
                 this.GiaoDien.ThongTinRooms();
             }
             this.GiaoDien.ThongTinRooms();
+            this.GiaoDien.refresh();
+        }
+        else if(src.equals("Nhập Tiền Điện Nước")){
+            if(this.GiaoDien.ThongtinBQL.isVisible()|| this.GiaoDien.viewroom.isVisible()){
+                this.GiaoDien.ThongtinBQL.setVisible(false);
+                this.GiaoDien.viewroom.setVisible(false);
+                this.GiaoDien.HD.setVisible(true);
+            }
+            else{
+                this.GiaoDien.HD.setVisible(true);
+                this.GiaoDien.ThongTinRooms();
+            }
+            this.GiaoDien.DienHoaDon();
             this.GiaoDien.refresh();
         }
     }

@@ -24,7 +24,7 @@ public class GiaoDien extends JFrame{
         this.setVisible(true);
     }
     public void init() throws MalformedURLException, SQLException {
-        this.setTitle("Ban Quản Lý");
+        this.setTitle("Sinh Viên");
         ThongTinSV = new ThongTinSV();
         thanhtoan = new ThanhToan();
         this.setSize(1280, 800);
@@ -42,7 +42,7 @@ public class GiaoDien extends JFrame{
         jp_west.setLayout(null);
 
         JLabel jl_logo = new JLabel();
-        jl_logo.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61.png"))));
+        jl_logo.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61.png")),"Lock"));
         jl_logo.setBounds(0, 0, 280, 800);
 
 

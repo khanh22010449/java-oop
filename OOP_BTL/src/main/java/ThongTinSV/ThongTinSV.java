@@ -10,7 +10,7 @@ import java.sql.*;
 public class ThongTinSV extends JPanel {
     public String user;
     private JTextField text_HoTen;
-    private JTextField text_Msv;
+    public JTextField text_Msv;
     private JTextField text_sex;
     private JTextField text_phone;
     private JTextField text_Address;
@@ -58,6 +58,7 @@ public class ThongTinSV extends JPanel {
         text_Msv.setEnabled(false);
         text_Msv.setBounds(300, 110, 200, 30);
         text_Msv.setFont(font);
+
 
         JLabel jl_name = new JLabel("Họ và Tên");
         jl_name.setBounds(300, 140, 200, 30);
@@ -247,9 +248,8 @@ public class ThongTinSV extends JPanel {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ktx", "root", "06032004");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655195", "sql12655195", "YQ2TMJuk53");
         Statement Eu = connection.createStatement();
-        Eu.execute("use ktx");
         String s = "SELECT * FROM  DsSV Where User like '"+user+"%'";
         ResultSet resultSet = Eu.executeQuery(s);
         while(resultSet.next()){
@@ -266,7 +266,7 @@ public class ThongTinSV extends JPanel {
             this.text_MaNganh.setText(resultSet.getString("MaNganh"));
             this.text_Lop.setText(resultSet.getString("Lop"));
             this.phong.setText(String.valueOf(resultSet.getInt("sophong")));
-            this.toa.setText(resultSet.getString("matoa"));
+            this.toa.setText(resultSet.getString("toa"));
         }
     }
 }

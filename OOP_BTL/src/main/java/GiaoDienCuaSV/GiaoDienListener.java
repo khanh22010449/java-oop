@@ -29,6 +29,7 @@ public class GiaoDienListener implements ActionListener{
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
+            this.GiaoDien.refresh();
         }
         else if(src.equals("Phản Hồi")){
 

@@ -51,17 +51,17 @@ public class JPanel_BanQL extends JPanel {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ktx", "root", "06032004");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655195", "sql12655195", "YQ2TMJuk53");
         Statement Eu = connection.createStatement();
-        Eu.execute("use ktx");
+        Eu.execute("use sql12655195");
         boolean is = false;
         String user = text_tk.getText();
         String pass = text_mk.getText();
-        String s ="Select * from DsQL where user like '" + user +"%'  AND pass like '"+ pass +"%';";
+        String s ="Select * from DsQL where user like '" + user +"%'  AND password like '"+ pass +"%';";
         ResultSet resultSet = Eu.executeQuery(s);
         while(resultSet.next()){
             String tk = resultSet.getString("user").trim();
-            if(user.equals(tk) && pass.equals(resultSet.getString("pass").trim())){
+            if(user.equals(tk) && pass.equals(resultSet.getString("password").trim())){
                 is = true;
             }
         }

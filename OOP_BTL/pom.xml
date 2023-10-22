@@ -25,4 +25,13 @@
     </dependencies>
 
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+            </resource>
+        </resources>
+    </build>
+
 </project>

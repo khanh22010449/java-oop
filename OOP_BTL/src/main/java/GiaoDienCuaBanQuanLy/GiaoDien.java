@@ -6,22 +6,26 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
+import HoaDon.HoaDonTungPhong;
 import ThongTinNguoiQuanLy.ThongTinBQL;
 import ThongTinPhong.ViewRoom;
 import org.example.JPanel_BanQL_Listener;
 
 public class GiaoDien extends JFrame{
     private JPanel Jp_ground;
-    private JLabel jp_Name;
     public ViewRoom viewroom;
+    public HoaDonTungPhong HD;
     public String user ;
     public String pass;
     public ThongTinBQL ThongtinBQL;
     public GiaoDien() throws MalformedURLException, SQLException{
         this.ThongtinBQL = new ThongTinBQL();
         this.viewroom = new ViewRoom();
+        this.HD = new HoaDonTungPhong();
         this.init();
         this.setVisible(true);
     }
@@ -36,7 +40,7 @@ public class GiaoDien extends JFrame{
         jp_west.setLayout(null);
 
         JLabel jl_logo = new JLabel();
-        jl_logo.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61.png"))));
+        jl_logo.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(new URL("file:///C:/Users/ASUS/Downloads/logo_phenikaa.fbe85f61.png")),"Lock"));
         jl_logo.setBounds(0, 0, 280, 800);
 
         ActionListener ac = new GiaoDienListener(this);
@@ -57,6 +61,15 @@ public class GiaoDien extends JFrame{
         jb_thongtinphong.setForeground(Color.BLACK);
         jb_thongtinphong.setBorder(new LineBorder(Color.RED));
 
+        JButton jb_hoadon = new JButton("Nhập Tiền Điện Nước");
+        jb_hoadon.addActionListener(ac);
+        jb_hoadon.setBounds(0, 160, 280, 40);
+        jb_hoadon.setBackground(Color.CYAN);
+        jb_hoadon.setOpaque(true);
+        jb_hoadon.setForeground(Color.BLACK);
+        jb_hoadon.setBorder(new LineBorder(Color.RED));
+
+        jp_west.add(jb_hoadon);
         jp_west.add(jb_thongtinphong);
         jp_west.add(jb_thongtin);
         jp_west.add(jl_logo);
@@ -73,12 +86,8 @@ public class GiaoDien extends JFrame{
         jl_name.setForeground(Color.blue);
         jl_name.setFont(new Font("Cambria Math", Font.BOLD, 24));
 
-        JLabel jl = new JLabel("Trần ĐÌNH BUG");
-        jl.setBounds(500, 13, 250, 40);
-        jl.setForeground(Color.blue);
-        jl.setFont(new Font("Cambria Math", Font.BOLD, 20));
-
-        JTextField text_cv = new JTextField(" Hủy Diệt CODER  ▼");
+        String[] s = {"Ban Quản Lý"};
+        JComboBox<String> text_cv = new JComboBox(s);
         text_cv.setBounds(750, 13, 180, 40);
         text_cv.setFont(new Font("Cambria Math", Font.BOLD, 20));
         text_cv.setBorder(new LineBorder(Color.GRAY));
@@ -86,7 +95,6 @@ public class GiaoDien extends JFrame{
         text_cv.setEditable(false);
 
         jp_north.add(text_cv);
-        jp_north.add(jl);
         jp_north.add(jl_name);
 
         Jp_ground.add(jp_north);
@@ -105,6 +113,10 @@ public class GiaoDien extends JFrame{
     public void ThongTinRooms(){
         this.viewroom.setBounds(270,90,1000,680);
         Jp_ground.add(viewroom);
+    }
+    public void DienHoaDon(){
+        HD.setBounds(420,140, 600,500);
+        Jp_ground.add(HD);
     }
     public void refresh() {
         this.pack();
