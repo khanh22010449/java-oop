@@ -137,7 +137,4 @@ public class MySQL {
         return false;
     }
 
-    public void sreach(){
-
-    }
 }

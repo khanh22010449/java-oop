@@ -4,6 +4,7 @@ import SinhVienDangKy.ThongTinDangKy;
 import TaoSQL.MySQL;
 import ThongTinSV.ThongTinSV;
 
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ public class ThongTinSVDao {
     public static String msv;
     public static String toa;
     public static int phong;
+    public static ThongTinSV tTsv;
     public static Vector getData() {
         ArrayList<ThongTinDangKy> student = ThongTinSVDao.getListSV();
         Vector result = new Vector<>();
@@ -182,5 +184,4 @@ public class ThongTinSVDao {
         }
         return false;
     }
-
 }

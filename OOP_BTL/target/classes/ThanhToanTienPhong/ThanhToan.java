@@ -1,8 +1,13 @@
 package ThanhToanTienPhong;
+import Dao.ThongTinSVDao;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.net.MalformedURLException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ThanhToan extends JPanel{
     public int phong;
@@ -12,7 +17,7 @@ public class ThanhToan extends JPanel{
     public JTextField sonuoc ;
     public JTextField tiennuoc ;
     public JTextField tongtien ;
-    public ThanhToan(){
+    public ThanhToan() throws SQLException, MalformedURLException {
         setSize(500,500);
         setBorder(new LineBorder(Color.CYAN));
         setLayout(null);
@@ -39,7 +44,7 @@ public class ThanhToan extends JPanel{
         jl_tiendien.setBounds(20,200,200,40);
         add(jl_tiendien);
 
-        tiendien = new JTextField();
+        tiendien = new JTextField("2000");
         tiendien.setBounds(300,200,100,30);
         tiendien.setEditable(false);
         tiendien.setFont(new Font("Arial", Font.BOLD, 16));
@@ -61,7 +66,7 @@ public class ThanhToan extends JPanel{
         jl_tiennuoc.setBounds(20,300,200,40);
         add(jl_tiennuoc);
 
-        tiennuoc = new JTextField();
+        tiennuoc = new JTextField("12000");
         tiennuoc.setBounds(300,300,100,30);
         tiennuoc.setEditable(false);
         tiennuoc.setFont(new Font("Arial", Font.BOLD, 16));

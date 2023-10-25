@@ -3,7 +3,10 @@ package HoaDon;
 import TaoSQL.MySQL;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class HoaDonTungPhong extends JPanel {
     public HoaDonTungPhong() {
@@ -58,22 +61,27 @@ public class HoaDonTungPhong extends JPanel {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("Cá Nhân Phải Thanh Toán");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("");
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("2000");
+        jTextField2.setEditable(false);
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("12000");
+        jTextField4.setEditable(false);
 
-        jTextField5.setText("jTextField5");
+        jTextField5.setText("");
+        jTextField5.setEditable(false);
 
-        jTextField6.setText("jTextField6");
+        jTextField6.setText("");
 
+        ActionListener ac = new HoaDonListener(this);
         jButton2.setBackground(new java.awt.Color(153, 255, 102));
         jButton2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 102, 102));
         jButton2.setText("Thanh Toán");
+        jButton2.addActionListener(ac);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,7 +239,7 @@ public class HoaDonTungPhong extends JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<Integer> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -251,7 +259,22 @@ public class HoaDonTungPhong extends JPanel {
     private javax.swing.JTextField jTextField6;
     private static Connection conn = TaoSQL.MySQL.getConnect();;
 
-//    public void Nhap(){
-//        String s
-//    }
+    public boolean Nhap() {
+        Double a = Double.parseDouble(jTextField1.getText());
+        Double b = Double.parseDouble(jTextField3.getText());
+        jTextField5.setText(String.valueOf(a * 2000 + b * 12000));
+        String s = "Update Phong set gia = ?, sodien = ? , sonuoc = ? where toa = ? and sophong = ? ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(s);
+            ps.setString(1, String.valueOf(a * 2000 + b * 12000));
+            ps.setString(2, jTextField1.getText() );
+            ps.setString(3,jTextField3.getText() );
+            ps.setString(4, jComboBox3.getItemAt(jComboBox3.getSelectedIndex()));
+            ps.setInt(5, jComboBox4.getItemAt(jComboBox4.getSelectedIndex()));
+            return ps.executeUpdate() > 0;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }

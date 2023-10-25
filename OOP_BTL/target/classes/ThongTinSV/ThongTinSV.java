@@ -1,5 +1,7 @@
 package ThongTinSV;
 
+import ThanhToanTienPhong.ThanhToan;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -21,8 +23,8 @@ public class ThongTinSV extends JPanel {
     private JTextField text_MaNganh;
     private JTextField text_Lop;
     private JTextField text_ChucVu = new JTextField("Sinh Viên");
-    private JTextField toa;
-    private JTextField phong;
+    public static JTextField toa;
+    public static JTextField phong;
     public ThongTinSV() throws MalformedURLException, SQLException {
         setSize(1000, 680);
         setLayout(null);
@@ -228,7 +230,6 @@ public class ThongTinSV extends JPanel {
         add(text_ChucVu);
         add(toa);
         add(phong);
-
         JLabel jl_tieude = new JLabel("Điền Thông Tin Sinh Viên", SwingConstants.CENTER);
         jl_tieude.setFont(new Font("Arial", Font.BOLD, 24));
         jl_tieude.setBounds(240, 30, 400, 50);
